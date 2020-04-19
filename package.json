@@ -14,7 +14,7 @@
     "lerna:cache": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-cache || :",
     "lerna:restore": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
     "preinstall": "yarn lerna:restore",
-    "webapp:build": "lerna run build --scope webapp"
+    "webapp:build": "cd apps/webapp && yarn build"
   },
 	"private": true
 }
