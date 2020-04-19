@@ -1,0 +1,10 @@
+{
+  "name": "dep-1",
+  "version": "0.0.0",
+  "author": "Slawek Kolodziej <hfrntt@gmail.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "pretty-ms": "5.1.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "preinstall": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
+    "build:webapp": "lerna run build --scope webapp"
+  },
+	"private": true
+}
