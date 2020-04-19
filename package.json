@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "preinstall": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
-    "build:webapp": "lerna run build --scope webapp"
+    "webapp:build": "lerna run build --scope webapp"
   },
 	"private": true
 }
