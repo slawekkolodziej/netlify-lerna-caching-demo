@@ -1,4 +1,4 @@
-# Taken from https://github.com/netlify/build-image/blob/xenial/run-build-functions.sh
+#!/bin/sh
 NODE_MODULES_CACHE="./node_modules"
 LERNA_CACHE="$NODE_MODULES_CACHE/lerna-cache"
 
