@@ -11,7 +11,9 @@
     "apps/*"
   ],
   "scripts": {
-    "preinstall": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
+    "lerna:cache": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
+    "lerna:restore": "[ $NETLIFY_RESTORE = 1 ] && ./netlify-lerna-restore || :",
+    "preinstall": "yarn lerna:restore",
     "webapp:build": "lerna run build --scope webapp"
   },
 	"private": true
