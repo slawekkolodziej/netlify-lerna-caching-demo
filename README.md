@@ -9,9 +9,7 @@ Let's look at how lerna / yarn workspace file structure looks like:
 ![](./images/monorepo-2.svg)
 *(image comes from [https://classic.yarnpkg.com/blog/2018/02/15/nohoist/](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/))*
 
-The `yarn install` command will be executed quickly only when all `node_modules` directories are in place. That's the problem with Netlify it only caches root-level `node_modules`.
-
-What's worse, because of current API limitation, it's impossible to run plugins before `yarn install` command. **Correct me if I'm wrong!**
+The `yarn install` command will be executed quickly only when all `node_modules` directories are in place. That's the problem with Netlify, it only caches root-level `node_modules`. What's even worse, because of the current API limitation, it's impossible to run plugins before `yarn install` command. **Correct me if I'm wrong!**
 
 ## The solution
 
