@@ -17,7 +17,7 @@ I looked at Netlify's build scripts ([https://github.com/netlify/build-image/](h
 
 I started playing around with the build process and realized that you can put anything you want in the `node_modules` after the build and access it during the next one.
 
-The next problem was - how to execute any code before `yarn install`? Build command executes when all dependencies are already installed. Then I thought `preinstall` hook in the root-level package.json! It gets executed right before `yarn install` and you can put any code you want!
+Another problem was - how to execute the code before `yarn install`? Build command executes when all dependencies are already installed. Then I thought `preinstall` hook in the root-level package.json! It gets executed right before `yarn install` and you can put any code you want!
 
 
 ## Usage
