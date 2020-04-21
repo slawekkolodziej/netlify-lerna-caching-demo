@@ -1,0 +1,18 @@
+{
+  "name": "app-1",
+  "version": "0.0.1",
+  "author": "Slawek Kolodziej <hfrntt@gmail.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "devDependencies": {
+    "dep-1": "0.0.1",
+    "dep-2": "0.0.1"
+  },
+  "scripts": {
+    "build": "node index.js",
+    "netlify:build": "node index.js && yarn netlify:lerna:cache",
+    "netlify:lerna:cache": "../../bin/netlify-lerna-cache",
+    "netlify:lerna:restore": "../../bin/netlify-lerna-restore",
+    "preinstall": "yarn netlify:lerna:restore"
+  }
+}

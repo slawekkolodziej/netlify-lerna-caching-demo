@@ -1,0 +1,52 @@
+#!/bin/sh
+if [ ! $NETLIFY_RESTORE ]; then
+    exit 0
+fi
+
+dir="$(dirname "$0")"
+root_dir="$(dirname $dir)"
+cached_node_modules="./node_modules"
+lerna_cache="$cached_node_modules/.lerna_cache"
+host_pkg_name="$(basename $(pwd))"
+host_pkg_dir="$root_dir/$(basename $(dirname $(pwd)))/$host_pkg_name"
+host_node_modules="$host_pkg_dir/node_modules"
+
+move() {
+    source="$1"
+    dest="$2"
+
+    if [ -d $source ]; then
+        if [ $host_node_modules = $source ]; then
+            echo "Skipping host package"
+        else
+            mv $source $dest
+            echo "$3"
+        fi
+    else
+        echo "$4"
+    fi
+}
+
+restore_deps() {
+    packages_dir="$root_dir/$1"
+    packages=$(ls -1 $packages_dir)
+
+    for pkg in $packages; do
+        pkg_node_modules="$packages_dir/$pkg/node_modules"
+        pkg_cache_dir="$lerna_cache/$pkg"
+
+        move \
+            "$pkg_cache_dir" \
+            "$pkg_node_modules" \
+            "Restored node modules for $pkg" \
+            "Unable to restore cache for $pkg"
+    done
+}
+
+move "$lerna_cache/node_modules" \
+    "$root_dir/node_modules" \
+    "Restored root node_modules" \
+    "Unable to restore root node_modules"
+
+restore_deps packages
+restore_deps apps

@@ -1,6 +1,6 @@
 {
   "name": "dep-2",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Slawek Kolodziej <hfrntt@gmail.com>",
   "license": "ISC",
   "main": "index.js",
